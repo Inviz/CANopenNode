@@ -180,7 +180,8 @@ CO_CANtx_t *CO_CANtxBufferInit(
         buffer->ident = ((uint32_t)ident & 0x07FFU)
                       | ((uint32_t)(((uint32_t)noOfBytes & 0xFU) << 12U))
                       | ((uint32_t)(rtr ? 0x8000U : 0U));
-
+           
+        buffer->DLC = noOfBytes;
         buffer->bufferFull = false;
         buffer->syncFlag = syncFlag;
     }
